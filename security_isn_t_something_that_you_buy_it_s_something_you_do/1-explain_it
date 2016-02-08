@@ -1,5 +1,13 @@
 1) what you should create? using what?
-	you need to generate a public/private key pair. to do so you type in the command $ssh-keygen followed by -t rss (represengint the type of ssh, dsa beign a less secure option) -b 4096 (the bies, could be less if you choose).
-2) what should you do with the public key? how will it be use? what will it do?
-3) what should you do with the private key? how willit be used? what will it do?
 
+SSH keys are super important because when a client needs to access a server, it needs to be secure. SSH is an exchange of cryptographic keys. 
+
+First you need to generate a public/private key pair. To do so you type in the command $ssh-keygen followed by -t rsa (representing the type of ssh, dsa being a less secure option) -b 4096 (the bites, the encryption key level, could be less if you choose) -f (file name) then hit enter. You’ll enter a passphrase if you choose (which is a good idea) and now the key has now been created.  Two keys are actually generated, one public one private. You never want to share the private key with anybody. Ever. 
+
+2) what should you do with the public key? how will it be use? what will it do?
+
+You can take your public key and put it onto the server you want access to. That way you can log into that server remotely and securely. On the server you $sudo adduser (username). then you can log into that computer using sudo su (username). But if you cd to your home directory, it will not let you log in because there is not yet a key pair for that ‘username’. You need to make sure that on your home user, you have your public key pbcopied into a ssh file (if you don’t have one, create one and paste your public key there). 
+
+3) what should you do with the private key? how will it be used? what will it do?
+
+don’t ever share you private key with anybody - ever. It should be restricted in permissions. The private key is used and identified by the public key during the encryption process.
