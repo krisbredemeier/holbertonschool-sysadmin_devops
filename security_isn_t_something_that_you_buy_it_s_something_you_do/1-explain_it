@@ -1,0 +1,5 @@
+1) what you should create? using what?
+	you need to generate a public/private key pair. to do so you type in the command $ssh-keygen followed by -t rss (represengint the type of ssh, dsa beign a less secure option) -b 4096 (the bies, could be less if you choose).
+2) what should you do with the public key? how will it be use? what will it do?
+3) what should you do with the private key? how willit be used? what will it do?
+
