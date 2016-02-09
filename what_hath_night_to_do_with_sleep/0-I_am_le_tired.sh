@@ -1,6 +1,3 @@
 #!/bin/bash
-START_TIME=$SECONDS
-sleep 9.808
-ELAPSED_TIME=$(($SECONDS - $START_TIME))
-echo "$((ELAPSED_TIME/60))m$((ELAPSED_TIME%60))s"
-time
+mytime="$(time ( sleep $1 ) 2>&1 1>/dev/null )"
+echo "$mytime"
