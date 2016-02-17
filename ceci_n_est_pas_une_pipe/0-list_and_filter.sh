@@ -1,2 +1,2 @@
-#!bin/bash
-ls /etc/ | grep 'pro' 
+#!/bin/bash
+ls -l  /etc/ | grep 'pro' 
