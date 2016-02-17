@@ -1,2 +1,2 @@
 #!/bin/bash
-ls | grep 'l' | sort | uniq
+cat list | grep 'l' | sort | uniq
