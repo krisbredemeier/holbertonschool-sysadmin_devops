@@ -1,3 +1,3 @@
 #!/bin/bash
-string="May the fourth be with you"
+string=$1
 echo "$string" | awk '{print $4}'
