@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((NUM1+NUM2))
+printf "%o\n" $(( 8#$NUM1 + 8#$NUM2 )) 
