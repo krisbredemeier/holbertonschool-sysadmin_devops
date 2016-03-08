@@ -1,2 +1,2 @@
 #!/bin/bash
-ifconfig eth0 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
+ifconfig | sed '1,1!d' | sed 's/.*HWaddr //' | sed 's/\ .*//' | sed -e 's/:/-/g'
