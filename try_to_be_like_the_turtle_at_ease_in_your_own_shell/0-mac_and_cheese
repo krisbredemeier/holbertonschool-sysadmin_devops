@@ -1,2 +1,2 @@
 #!/bin/bash
-ifconfig | sed '1,1!d' | sed 's/.*HWaddr //' | sed 's/\ .*//' | sed -e 's/:/-/g'
+ifconfig | sed '1,1!d' | sed 's/.*HWaddr //' | sed 's/\ .*//' | sed -e 's/:/-/g' | tr - :
