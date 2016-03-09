@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((NUM1+NUM2))
+echo $((8#$NUM1+8#$NUM2)) | bc
