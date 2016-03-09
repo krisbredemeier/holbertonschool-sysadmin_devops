@@ -1,3 +1,7 @@
 #!/bin/bash
+<<<<<<< HEAD
 ifconfig | sed '1,1!d' | sed 's/.*HWaddr //' | sed 's/\ .*//' | sed -e 's/:/-/g'
 
+=======
+ifconfig | sed '1,1!d' | sed 's/.*HWaddr //' | sed 's/\ .*//' | sed -e 's/:/-/g' | tr - :
+>>>>>>> e99b25dbea50c9bb059a58430483767de2d7d49b
