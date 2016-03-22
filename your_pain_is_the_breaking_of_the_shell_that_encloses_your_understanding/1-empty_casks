@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type fdR -empty | sort
+ls -lafR | find . -type d -empty | sort
