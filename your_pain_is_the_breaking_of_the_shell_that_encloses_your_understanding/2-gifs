@@ -1,2 +1,2 @@
 #!/bin/bash
-find * -name *.gif
+basename -a $(find . -name *.gif)
