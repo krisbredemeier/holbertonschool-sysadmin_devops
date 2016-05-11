@@ -1,2 +1,2 @@
 #!/bin/bash
-touch /tmp/permissions && chmod +rw+rw+rw /tmp/permissions
+touch /tmp/permissions && chmod a=rw /tmp/permissions
