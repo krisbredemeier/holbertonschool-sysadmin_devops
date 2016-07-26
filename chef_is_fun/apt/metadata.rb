@@ -1,7 +1,0 @@
-name 'apt'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'all_rights'
-description 'Installs/Configures apt'
-long_description 'Installs/Configures apt'
-version '0.1.0'

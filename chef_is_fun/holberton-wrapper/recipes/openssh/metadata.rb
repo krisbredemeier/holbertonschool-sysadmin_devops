@@ -1,7 +1,0 @@
-name             'openssh'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
-license          'All rights reserved'
-description      'Installs/Configures openssh'
-long_description 'Installs/Configures openssh'
-version          '0.1.0'
