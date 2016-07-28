@@ -1,20 +1,3 @@
-E, [2016-07-25T16:36:31.489052 #43434] ERROR -- Kitchen: ------Exception-------
-E, [2016-07-25T16:36:31.489573 #43434] ERROR -- Kitchen: Class: Kitchen::UserError
-E, [2016-07-25T16:36:31.489599 #43434] ERROR -- Kitchen: Message: Instance <default-debian-84> has not yet been created
-E, [2016-07-25T16:36:31.489616 #43434] ERROR -- Kitchen: ----------------------
-E, [2016-07-25T16:36:31.489629 #43434] ERROR -- Kitchen: ------Backtrace-------
-E, [2016-07-25T16:36:31.489642 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:209:in `login'
-E, [2016-07-25T16:36:31.489656 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command/login.rb:39:in `call'
-E, [2016-07-25T16:36:31.489670 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/cli.rb:56:in `perform'
-E, [2016-07-25T16:36:31.489683 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/cli.rb:238:in `login'
-E, [2016-07-25T16:36:31.489697 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
-E, [2016-07-25T16:36:31.489710 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
-E, [2016-07-25T16:36:31.489724 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/cli.rb:325:in `invoke_task'
-E, [2016-07-25T16:36:31.489737 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
-E, [2016-07-25T16:36:31.489750 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
-E, [2016-07-25T16:36:31.489763 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/bin/kitchen:13:in `block in <top (required)>'
-E, [2016-07-25T16:36:31.489777 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/errors.rb:174:in `with_friendly_errors'
-E, [2016-07-25T16:36:31.489790 #43434] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/bin/kitchen:13:in `<top (required)>'
-E, [2016-07-25T16:36:31.489804 #43434] ERROR -- Kitchen: /usr/local/bin/kitchen:17:in `load'
-E, [2016-07-25T16:36:31.489831 #43434] ERROR -- Kitchen: /usr/local/bin/kitchen:17:in `<main>'
-E, [2016-07-25T16:36:31.489844 #43434] ERROR -- Kitchen: ----End Backtrace-----
+I, [2016-07-27T17:23:49.905233 #24443]  INFO -- Kitchen: -----> Starting Kitchen (v1.10.2)
+I, [2016-07-27T17:23:50.547229 #24443]  INFO -- Kitchen: -----> Converging <default-debian-84>...
+I, [2016-07-27T17:23:57.000574 #24443]  INFO -- Kitchen: -----> Kitchen is finished. (0m7.10s)

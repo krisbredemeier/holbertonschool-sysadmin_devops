@@ -1,0 +1,101 @@
+I, [2016-07-27T17:23:50.547285 #24443]  INFO -- default-debian-84: -----> Converging <default-debian-84>...
+I, [2016-07-27T17:23:50.547784 #24443]  INFO -- default-debian-84: Preparing files for transfer
+I, [2016-07-27T17:23:50.547893 #24443]  INFO -- default-debian-84: Preparing dna.json
+I, [2016-07-27T17:23:50.548278 #24443]  INFO -- default-debian-84: Resolving cookbook dependencies with Berkshelf 4.3.5...
+I, [2016-07-27T17:23:51.018405 #24443]  INFO -- default-debian-84: Removing non-cookbook files before transfer
+I, [2016-07-27T17:23:51.036193 #24443]  INFO -- default-debian-84: Preparing data_bags
+I, [2016-07-27T17:23:51.036569 #24443]  INFO -- default-debian-84: Preparing validation.pem
+I, [2016-07-27T17:23:51.036978 #24443]  INFO -- default-debian-84: Preparing client.rb
+I, [2016-07-27T17:23:51.083084 #24443]  INFO -- default-debian-84: -----> Chef Omnibus installation detected (install only if missing)
+I, [2016-07-27T17:23:51.097208 #24443]  INFO -- default-debian-84: Transferring files to <default-debian-84>
+I, [2016-07-27T17:23:52.952380 #24443]  INFO -- default-debian-84: Starting Chef Client, version 12.12.15
+I, [2016-07-27T17:23:54.429128 #24443]  INFO -- default-debian-84: resolving cookbooks for run list: ["holberton-wrapper"]
+I, [2016-07-27T17:23:55.493699 #24443]  INFO -- default-debian-84: Synchronizing Cookbooks:
+I, [2016-07-27T17:23:55.500091 #24443]  INFO -- default-debian-84:   - apt (4.0.1)
+I, [2016-07-27T17:23:55.502315 #24443]  INFO -- default-debian-84:   - openssh (2.0.0)
+I, [2016-07-27T17:23:55.513775 #24443]  INFO -- default-debian-84:   - windows (1.44.1)
+I, [2016-07-27T17:23:55.516159 #24443]  INFO -- default-debian-84:   - chef_handler (1.4.0)
+I, [2016-07-27T17:23:55.517156 #24443]  INFO -- default-debian-84:   - holberton-wrapper (0.1.0)
+I, [2016-07-27T17:23:55.517230 #24443]  INFO -- default-debian-84:   - user (0.4.2)
+I, [2016-07-27T17:23:55.517267 #24443]  INFO -- default-debian-84:   - ntp (2.0.0)
+I, [2016-07-27T17:23:55.517754 #24443]  INFO -- default-debian-84:   - compat_resource (12.10.7)
+I, [2016-07-27T17:23:55.518458 #24443]  INFO -- default-debian-84:   - iptables (2.2.0)
+I, [2016-07-27T17:23:55.521197 #24443]  INFO -- default-debian-84: Installing Cookbook Gems:
+I, [2016-07-27T17:23:55.521254 #24443]  INFO -- default-debian-84: Compiling Cookbooks...
+I, [2016-07-27T17:23:55.575561 #24443]  INFO -- default-debian-84: [2016-07-28T00:23:55+00:00] WARN: Chef::Provider::AptRepository already exists!  Cannot create deprecation class for LWRP provider apt_repository from cookbook apt
+I, [2016-07-27T17:23:55.584475 #24443]  INFO -- default-debian-84: [2016-07-28T00:23:55+00:00] WARN: AptRepository already exists!  Deprecation class overwrites Custom resource apt_repository from cookbook apt
+I, [2016-07-27T17:23:55.662308 #24443]  INFO -- default-debian-84: Converging 28 resources
+I, [2016-07-27T17:23:55.663932 #24443]  INFO -- default-debian-84: Recipe: apt::default
+I, [2016-07-27T17:23:55.665262 #24443]  INFO -- default-debian-84:   * file[/var/lib/apt/periodic/update-success-stamp] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:55.667316 #24443]  INFO -- default-debian-84:   * apt_update[periodic] action periodic (up to date)
+I, [2016-07-27T17:23:55.669788 #24443]  INFO -- default-debian-84:   * execute[apt-get update] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:55.671646 #24443]  INFO -- default-debian-84:   * execute[apt-get autoremove] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:55.672954 #24443]  INFO -- default-debian-84:   * execute[apt-get autoclean] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:55.676672 #24443]  INFO -- default-debian-84:   * directory[/var/cache/local] action create (up to date)
+I, [2016-07-27T17:23:55.680142 #24443]  INFO -- default-debian-84:   * directory[/var/cache/local/preseeding] action create (up to date)
+I, [2016-07-27T17:23:55.686076 #24443]  INFO -- default-debian-84:   * template[/etc/apt/apt.conf.d/10recommends] action create (up to date)
+I, [2016-07-27T17:23:55.742480 #24443]  INFO -- default-debian-84:   * apt_package[apt-transport-https] action install (up to date)
+I, [2016-07-27T17:23:55.743362 #24443]  INFO -- default-debian-84: Recipe: ntp::default
+I, [2016-07-27T17:23:55.797251 #24443]  INFO -- default-debian-84:   * apt_package[ntp] action install (up to date)
+I, [2016-07-27T17:23:55.851766 #24443]  INFO -- default-debian-84:   * apt_package[ntpdate] action install (up to date)
+I, [2016-07-27T17:23:55.859487 #24443]  INFO -- default-debian-84:   * directory[/var/lib/ntp] action create (up to date)
+I, [2016-07-27T17:23:55.863666 #24443]  INFO -- default-debian-84:   * directory[/var/log/ntpstats/] action create (up to date)
+I, [2016-07-27T17:23:55.870357 #24443]  INFO -- default-debian-84:   * cookbook_file[/etc/ntp.leapseconds] action create (up to date)
+I, [2016-07-27T17:23:55.896410 #24443]  INFO -- default-debian-84:   * template[/etc/ntp.conf] action create (up to date)
+I, [2016-07-27T17:23:55.897810 #24443]  INFO -- default-debian-84:   * execute[Force sync hardware clock with system clock] action run (skipped due to only_if)
+I, [2016-07-27T17:23:55.930683 #24443]  INFO -- default-debian-84:   * service[ntp] action enable (up to date)
+I, [2016-07-27T17:23:55.965246 #24443]  INFO -- default-debian-84:   * service[ntp] action start (up to date)
+I, [2016-07-27T17:23:55.966041 #24443]  INFO -- default-debian-84: Recipe: openssh::default
+I, [2016-07-27T17:23:56.019679 #24443]  INFO -- default-debian-84:   * apt_package[openssh-client] action install (up to date)
+I, [2016-07-27T17:23:56.078099 #24443]  INFO -- default-debian-84:   * apt_package[openssh-server] action install (up to date)
+I, [2016-07-27T17:23:56.084436 #24443]  INFO -- default-debian-84:   * template[/etc/ssh/ssh_config] action create (up to date)
+I, [2016-07-27T17:23:56.091130 #24443]  INFO -- default-debian-84:   * template[/etc/ssh/sshd_config] action create (up to date)
+I, [2016-07-27T17:23:56.092736 #24443]  INFO -- default-debian-84:   * execute[sshd-config-check] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:56.194623 #24443]  INFO -- default-debian-84:   * service[ssh] action enable (up to date)
+I, [2016-07-27T17:23:56.294620 #24443]  INFO -- default-debian-84:   * service[ssh] action start (up to date)
+I, [2016-07-27T17:23:56.295100 #24443]  INFO -- default-debian-84: Recipe: holberton-wrapper::default
+I, [2016-07-27T17:23:56.298251 #24443]  INFO -- default-debian-84:   * apt_preference[dotdeb] action add[2016-07-28T00:23:56+00:00] WARN: Replacing dotdeb.pref with dotdeb.pref in /etc/apt/preferences.d/
+I, [2016-07-27T17:23:56.300224 #24443]  INFO -- default-debian-84: 
+I, [2016-07-27T17:23:56.310295 #24443]  INFO -- default-debian-84:     * directory[/etc/apt/preferences.d] action create (up to date)
+I, [2016-07-27T17:23:56.311805 #24443]  INFO -- default-debian-84:     * file[/etc/apt/preferences.d/dotdeb.pref] action delete (skipped due to only_if)
+I, [2016-07-27T17:23:56.313821 #24443]  INFO -- default-debian-84:     * file[/etc/apt/preferences.d/dotdeb] action delete (up to date)
+I, [2016-07-27T17:23:56.318207 #24443]  INFO -- default-debian-84:     * file[/etc/apt/preferences.d/dotdeb.pref] action create (up to date)
+I, [2016-07-27T17:23:56.319038 #24443]  INFO -- default-debian-84:      (up to date)
+I, [2016-07-27T17:23:56.375181 #24443]  INFO -- default-debian-84:   * apt_package[nginx] action install (up to date)
+I, [2016-07-27T17:23:56.428795 #24443]  INFO -- default-debian-84:   * apt_package[net-tools] action install (up to date)
+I, [2016-07-27T17:23:56.546612 #24443]  INFO -- default-debian-84:   * service[nginx] action enable (up to date)
+I, [2016-07-27T17:23:56.646777 #24443]  INFO -- default-debian-84:   * service[nginx] action start (up to date)
+I, [2016-07-27T17:23:56.649471 #24443]  INFO -- default-debian-84:   * user_account[holberton] action create
+I, [2016-07-27T17:23:56.654209 #24443]  INFO -- default-debian-84:     * directory[/home/holberton parent directory] action create (up to date)
+I, [2016-07-27T17:23:56.658043 #24443]  INFO -- default-debian-84:     * user[holberton] action create (up to date)
+I, [2016-07-27T17:23:56.663218 #24443]  INFO -- default-debian-84:     * directory[/home/holberton] action create (up to date)
+I, [2016-07-27T17:23:56.667737 #24443]  INFO -- default-debian-84:     * directory[/home/holberton/.ssh] action create (up to date)
+I, [2016-07-27T17:23:56.673778 #24443]  INFO -- default-debian-84:     * template[/home/holberton/.ssh/authorized_keys] action create (up to date)
+I, [2016-07-27T17:23:56.679021 #24443]  INFO -- default-debian-84:     * directory[/home/holberton/.ssh] action create (up to date)
+I, [2016-07-27T17:23:56.681381 #24443]  INFO -- default-debian-84:     * execute[create ssh keypair for holberton] action run (up to date)
+I, [2016-07-27T17:23:56.685241 #24443]  INFO -- default-debian-84:     * directory[/home/holberton parent directory] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:56.687329 #24443]  INFO -- default-debian-84:     * user[holberton] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:56.689289 #24443]  INFO -- default-debian-84:     * directory[/home/holberton] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:56.691264 #24443]  INFO -- default-debian-84:     * directory[/home/holberton/.ssh] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:56.693057 #24443]  INFO -- default-debian-84:     * template[/home/holberton/.ssh/authorized_keys] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:56.694753 #24443]  INFO -- default-debian-84:     * execute[create ssh keypair for holberton] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:56.696613 #24443]  INFO -- default-debian-84:     * directory[/home/holberton/.ssh] action nothing (skipped due to action :nothing)
+I, [2016-07-27T17:23:56.699058 #24443]  INFO -- default-debian-84:      (up to date)
+I, [2016-07-27T17:23:56.780066 #24443]  INFO -- default-debian-84: 
+I, [2016-07-27T17:23:56.780633 #24443]  INFO -- default-debian-84: Running handlers:
+I, [2016-07-27T17:23:56.781158 #24443]  INFO -- default-debian-84: Running handlers complete
+I, [2016-07-27T17:23:56.781442 #24443]  INFO -- default-debian-84: 
+I, [2016-07-27T17:23:56.781995 #24443]  INFO -- default-debian-84: Deprecated features used!
+I, [2016-07-27T17:23:56.782530 #24443]  INFO -- default-debian-84:   "method access to node attributes (node.foo.bar) is deprecated and will be removed in Chef 13, please use bracket syntax (node["foo"]["bar"]) at 1 location:
+I, [2016-07-27T17:23:56.783047 #24443]  INFO -- default-debian-84:     - /tmp/kitchen/cache/cookbooks/user/attributes/default.rb:22:in `from_file'
+I, [2016-07-27T17:23:56.783511 #24443]  INFO -- default-debian-84:   Cloning resource attributes for file[/etc/apt/preferences.d/dotdeb.pref] from prior resource (CHEF-3694)
+I, [2016-07-27T17:23:56.784117 #24443]  INFO -- default-debian-84: Previous file[/etc/apt/preferences.d/dotdeb.pref]: /tmp/kitchen/cache/cookbooks/apt/providers/preference.rb:52:in `block in class_from_file'
+I, [2016-07-27T17:23:56.784608 #24443]  INFO -- default-debian-84: Current  file[/etc/apt/preferences.d/dotdeb.pref]: /tmp/kitchen/cache/cookbooks/apt/providers/preference.rb:67:in `block in class_from_file' at 1 location:
+I, [2016-07-27T17:23:56.785045 #24443]  INFO -- default-debian-84:     - /tmp/kitchen/cache/cookbooks/apt/providers/preference.rb:67:in `block in class_from_file'
+I, [2016-07-27T17:23:56.785411 #24443]  INFO -- default-debian-84:   Cloning resource attributes for directory[/home/holberton/.ssh] from prior resource (CHEF-3694)
+I, [2016-07-27T17:23:56.785819 #24443]  INFO -- default-debian-84: Previous directory[/home/holberton/.ssh]: /tmp/kitchen/cache/cookbooks/user/providers/account.rb:146:in `home_ssh_dir_resource'
+I, [2016-07-27T17:23:56.786169 #24443]  INFO -- default-debian-84: Current  directory[/home/holberton/.ssh]: /tmp/kitchen/cache/cookbooks/user/providers/account.rb:146:in `home_ssh_dir_resource' at 1 location:
+I, [2016-07-27T17:23:56.786482 #24443]  INFO -- default-debian-84:     - /tmp/kitchen/cache/cookbooks/user/providers/account.rb:146:in `home_ssh_dir_resource'
+I, [2016-07-27T17:23:56.786721 #24443]  INFO -- default-debian-84: 
+I, [2016-07-27T17:23:56.786982 #24443]  INFO -- default-debian-84: Chef Client finished, 0/49 resources updated in 03 seconds
+I, [2016-07-27T17:23:57.000167 #24443]  INFO -- default-debian-84: Finished converging <default-debian-84> (0m6.45s).

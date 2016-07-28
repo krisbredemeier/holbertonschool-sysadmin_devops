@@ -1,4 +1,4 @@
-# holberton-wrapper-cookbook
+# "-cookbook
 
 TODO: Enter the cookbook description here.
 
@@ -16,7 +16,7 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['holberton-wrapper']['bacon']</tt></td>
+    <td><tt>['"']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -25,18 +25,18 @@ TODO: List your supported platforms.
 
 ## Usage
 
-### holberton-wrapper::default
+### "::default
 
-Include `holberton-wrapper` in your node's `run_list`:
+Include `"` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[holberton-wrapper::default]"
+    "recipe["::default]"
   ]
 }
 ```
 
 ## License and Authors
 
-Author:: krisbredemeier@gmail.com (<YOUR_EMAIL>)
+Author:: YOUR_NAME (<YOUR_EMAIL>)

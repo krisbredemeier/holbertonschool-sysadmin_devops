@@ -7,3 +7,17 @@ Dir["#{site_cookbooks_path}/**"].each do |cookbook_path|
     cookbook File.basename(cookbook_path), path: cookbook_path
   end
 end
+
+cookbook 'apt', '~> 4.0.1'
+cookbook 'ntp', '~> 2.0.0'
+cookbook 'openssh', '~> 2.0.0'
+cookbook 'user', '~> 0.4.2'
+
+berks cookbook \
+  --skip-vagrant \
+  --skip-git \
+  --skip-test-kitchen \
+  --maintainer "Kris Bredemeier" \
+  --maintainer-email "34@holbertonschool.com" \
+  --pattern wrapper \
+  holberton-wrapper cookbooks/holberton-wrapper
