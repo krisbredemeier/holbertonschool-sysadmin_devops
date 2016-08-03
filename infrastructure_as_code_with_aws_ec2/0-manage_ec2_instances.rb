@@ -39,16 +39,18 @@ opt_parser.parse!(ARGV)
 raise OptionParser::MissingArgument, "\nPlease provide an action (launch, stop, start, terminate)" if options[:action].nil?
 
 creds = YAML.load_file('config.yaml')
-ec2 = Aws::EC2::Client.new(
+ec2 = Aws::EC2::Client.new({
       region: 'us-west-2',
-      credentials: Aws::Credentials.new(creds[:access_key_id], creds[:secret_access_key]))
+      access_key_id: creds[:access_key_id],
+      secret_access_key: creds[:secret_access_key]
+    })
 
 if options[:action] == :launch then
         new_inst = ec2.run_instances({
                         dry_run: false,
                 image_id: creds[:image_id],
                 key_pair: creds['key_pair'],
-                instance_type: creds["instance_type"],
+                instance_type: creds[:instance_type],
                 security_group_ids: creds["security_group_ids"],
                 min_count: 1,
                 max_count: 1,
@@ -57,8 +59,8 @@ if options[:action] == :launch then
                     }
               })
         instance_id = new_inst.instances[0].instance_id
-        new_inst = ec2.wait_unitl(:instance_running, instance_ids:[instance_id])
-        puts instance_id, new_inst.reservations[0].instances[0].public_DNS_name
+        new_inst = ec2.wait_until(:instance_running, instance_ids:[instance_id])
+        puts instance_id, new_inst.reservations[0].instances[0].public_dns_name
 else
         raise OptionParser::MissingArgument, "\nPlease provide a valid SERVER_ID" if options[:server_id].nil?
 
