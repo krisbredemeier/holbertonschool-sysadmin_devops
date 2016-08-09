@@ -20,7 +20,7 @@ opts.separator "Specific options:"
             end
     end
 
-    opts.on('-i', '--server_id [SERVER_ID]', 'provides the server id when rquired') do |v|
+    opts.on('-i', '--instance_id [SERVER_ID]', 'provides the server id when rquired') do |v|
             options[:server_id] = v
     end
 
