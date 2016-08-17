@@ -21,34 +21,33 @@ opts.separator "Specific options:"
     end
 
 
-#     opts.on('-i', '--instance_id [SERVER_ID]', 'provides the server id when rquired') do |v|
-#             options[:server_id] = v
-#     end
+    opts.on('-b', '--bucketname [Bucket_name]', 'provides the bucket name when rquired') do |v|
+            options[:bucket_name] = v
+    end
 #
 #     opts.on('-v', '--verbose', 'Provides extra information while the script is running') do |v|
 #             options[:verbose] = v
 #     end
 #
-#     opts.on('-h', '--help', 'show this message') do |v|
-#             puts opts
-#             exit
-#     end
-# end
+'    opts.on('-h', '--help', 'show this message') do |v|
+            puts opts
+            exit
+    end
+end'
 
 opt_parser.parse!(ARGV)
 
 raise OptionParser::MissingArgument, "\nPlease provide an action (list, upload, delete, download)" if options[:action].nil?
 
 creds = YAML.load_file('config.yaml')
-ec2 = Aws::EC2::Client.new({
+s3 = AWS::S3.new({
       region: creds[:region],
       access_key_id: creds[:access_key_id],
       secret_access_key: creds[:secret_access_key]
     })
 
-# if options[:action] == :launch then
-#         new_inst = ec2.run_instances({
-#                         dry_run: false,
+if options[:action] == :list then
+        new_inst = s3.run_instances({
 #                 image_id: creds[:image_id],
 #                 key_pair: creds['key_pair'],
 #                 instance_type: creds[:instance_type],
