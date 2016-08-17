@@ -12,7 +12,7 @@ opt_parser = OptionParser.new do |opts|
 opts.separator "Specific options:"
 
     opts.on('-a', '--action [ACTION]', [:list, :upload, :delete, :download],
-            'select action type (list, upload, delete, download)') do |v|
+            'Select action to perform [list, upload, delete, download]') do |v|
             if not v then
                     puts "Error: Action not valid"
             else
@@ -37,34 +37,20 @@ opts.separator "Specific options:"
             puts opts
             exit
     end
-end'
-
+end
 opt_parser.parse!(ARGV)
-
 raise OptionParser::MissingArgument, "\nPlease provide an action (list, upload, delete, download)" if options[:action].nil?
-
 creds = YAML.load_file('config.yaml')
 s3 = AWS::S3.new({
       region: creds[:region],
       access_key_id: creds[:access_key_id],
       secret_access_key: creds[:secret_access_key]
     })
-
 if options[:action] == :list then
-        new_inst = s3.run_instances({
-#                 image_id: creds[:image_id],
-#                 key_pair: creds['key_pair'],
-#                 instance_type: creds[:instance_type],
-#                 security_group_ids: creds["security_group_ids"],
-#                 min_count: 1,
-#                 max_count: 1,
-#                 placement: {
-#                         availabilityZone: creds["availability-zone"],
-#                     }
-#               })
-#         instance_id = new_inst.instances[0].instance_id
-#         new_inst = ec2.wait_until(:instance_running, instance_ids:[instance_id])
-#         puts instance_id, new_inst.reservations[0].instances[0].public_dns_name
+        s3.buckets.each do |bucket|
+          puts bucket
+        end
+
 # else
 #         raise OptionParser::MissingArgument, "\nPlease provide a valid SERVER_ID" if options[:server_id].nil?
 #
