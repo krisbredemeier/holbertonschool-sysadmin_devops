@@ -50,18 +50,17 @@ if options[:action] == :list then
         s3.buckets.each do |bucket|
           puts bucket
         end
+else
+        raise OptionParser::MissingArgument, "\nPlease provide a valid action" if options[:bucket_name].nil?
 
-# else
-#         raise OptionParser::MissingArgument, "\nPlease provide a valid SERVER_ID" if options[:server_id].nil?
-#
-#         if options[:action] == :stop then
+        if options[:action] == :upload then
 #           new_inst = ec2.stop_instances({
 #             dry_run: false,
 #             instance_ids: [options[:server_id]],
 #             force: false,
 #           })
 #
-#         elsif options[:action] == :start then
+        elsif options[:action] == :delete then
 #         		new_inst = ec2.start_instances({
 #         		  instance_ids: [options[:server_id]], # required
 #         		  dry_run: false,
@@ -69,7 +68,7 @@ if options[:action] == :list then
 #         		new_inst = ec2.wait_until(:instance_running, instance_ids:[options[:server_id]])
 #         		puts new_inst.reservations[0].instances[0].public_dns_name
 #
-#         elsif options[:action] == :terminate then
+        elsif options[:action] == :download then
 #       		new_inst = ec2.terminate_instances({
 #       		  dry_run: false,
 #       		  instance_ids: [options[:server_id]],
