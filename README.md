@@ -1,1 +1,2 @@
 # holbertonschool-sysadmin_devops
+This repo is all about undersatnding the system administarion side of thigns, as well as dev-ops. Each project has specific goals, and along the way I have learned about managing servers, DNS...and so much more.
