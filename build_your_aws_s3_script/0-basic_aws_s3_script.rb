@@ -3,6 +3,7 @@
 require 'aws-sdk'
 require 'yaml'
 require 'optparse'
+require 'rubygems'
 
 options = {}
 opt_parser = OptionParser.new do |opts|
@@ -19,7 +20,6 @@ opts.separator "Specific options:"
                     options[:action] = v
             end
     end
-
 
     opts.on('-b', '--bucketname [BUCKET_NAME]', 'Name of the bucket to perform the action on') do |v|
             options[:bucket_name] = v
@@ -38,40 +38,38 @@ opts.separator "Specific options:"
             exit
     end
 end
+
 opt_parser.parse!(ARGV)
 raise OptionParser::MissingArgument, "\nPlease provide an action (list, upload, delete, download)" if options[:action].nil?
 creds = YAML.load_file('config.yaml')
-s3 = AWS::S3.new({
+
+s3 = Aws::S3::Resource.new({
       region: creds[:region],
       access_key_id: creds[:access_key_id],
       secret_access_key: creds[:secret_access_key]
     })
-if options[:action] == :list then
-        s3.buckets.each do |bucket|
-          puts bucket
-        end
-else
-        raise OptionParser::MissingArgument, "\nPlease provide a valid action" if options[:bucket_name].nil?
+# obj = s3.buckets['bucket_name'].objects['access_key_id'] # no request made
+# if options[:action] == :list then
+#         s3.buckets.each do |bucket|
+#           puts bucket
+#         end
+# else
+#         raise OptionParser::MissingArgument, "\nPlease provide a valid action" if options[:bucket_name].nil?
 
+# to upload
+# Create an instance of the Aws::S3::Resource class
+# Reference the target object by bucket name and key
+# Call#upload_file on the object
         if options[:action] == :upload then
-#           new_inst = ec2.stop_instances({
-#             dry_run: false,
-#             instance_ids: [options[:server_id]],
-#             force: false,
-#           })
-#
+          file = '/Users/krisbredemeier/Downloads/holberton-logo.png'
+          name = File.basename(file)
+          obj = s3.bucket('bredemeier').object(name)
+          obj.upload_file(file)
+
         elsif options[:action] == :delete then
-#         		new_inst = ec2.start_instances({
-#         		  instance_ids: [options[:server_id]], # required
-#         		  dry_run: false,
-#         		})
-#         		new_inst = ec2.wait_until(:instance_running, instance_ids:[options[:server_id]])
-#         		puts new_inst.reservations[0].instances[0].public_dns_name
-#
+
+
         elsif options[:action] == :download then
-#       		new_inst = ec2.terminate_instances({
-#       		  dry_run: false,
-#       		  instance_ids: [options[:server_id]],
-#       		})
-#       	end
+
+      	end
 # end
