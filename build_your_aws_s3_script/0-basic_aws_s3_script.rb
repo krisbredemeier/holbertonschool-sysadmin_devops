@@ -21,15 +21,19 @@ opts.separator "Specific options:"
     end
 
 
-    opts.on('-b', '--bucketname [Bucket_name]', 'provides the bucket name when rquired') do |v|
+    opts.on('-b', '--bucketname [BUCKET_NAME]', 'Name of the bucket to perform the action on') do |v|
             options[:bucket_name] = v
     end
-#
-#     opts.on('-v', '--verbose', 'Provides extra information while the script is running') do |v|
-#             options[:verbose] = v
-#     end
-#
-'    opts.on('-h', '--help', 'show this message') do |v|
+
+    opts.on('-f', '--filepath [FILE_PATH]', 'Provides the path to the file to upload') do |v|
+            options[:file_path] = v
+    end
+
+    opts.on('-v', '--verbose', 'Run verbosely') do |v|
+            options[:verbose] = v
+    end
+
+    opts.on('-h', '--help', 'returns the help menu') do |v|
             puts opts
             exit
     end
