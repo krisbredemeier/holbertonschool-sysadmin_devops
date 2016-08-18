@@ -48,13 +48,8 @@ s3 = Aws::S3::Resource.new({
       access_key_id: creds[:access_key_id],
       secret_access_key: creds[:secret_access_key]
     })
-# obj = s3.buckets['bucket_name'].objects['access_key_id'] # no request made
-# if options[:action] == :list then
-#         s3.buckets.each do |bucket|
-#           puts bucket
-#         end
-# else
-#         raise OptionParser::MissingArgument, "\nPlease provide a valid action" if options[:bucket_name].nil?
+
+    #  raise OptionParser::MissingArgument, "\nPlease provide a valid action" if options['b'].nil?
 
 # to upload
 # Create an instance of the Aws::S3::Resource class
@@ -66,10 +61,13 @@ s3 = Aws::S3::Resource.new({
           obj = s3.bucket('bredemeier').object(name)
           obj.upload_file(file)
 
+        elsif options[:action] == :list then
+                  s3.buckets.each do |bucket|
+                      puts "#{bucket.name}\t#{bucket.creation_date}"
+                  end
         elsif options[:action] == :delete then
-
 
         elsif options[:action] == :download then
 
-      	end
-# end
+      	# end
+end
