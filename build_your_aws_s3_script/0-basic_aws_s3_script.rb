@@ -48,6 +48,11 @@ s3 = Aws::S3::Resource.new({
       access_key_id: creds[:access_key_id],
       secret_access_key: creds[:secret_access_key]
     })
+s3 = Aws::S3::Client.new({
+      region: creds[:region],
+      access_key_id: creds[:access_key_id],
+      secret_access_key: creds[:secret_access_key]
+    })
 
     #  raise OptionParser::MissingArgument, "\nPlease provide a valid action" if options['b'].nil?
 
@@ -62,12 +67,27 @@ s3 = Aws::S3::Resource.new({
           obj.upload_file(file)
 
         elsif options[:action] == :list then
-                  s3.buckets.each do |bucket|
-                      puts "#{bucket.name}\t#{bucket.creation_date}"
-                  end
+          s3.buckets.each do |bucket|
+              puts "#{obj.key}\t#{obj.etag}"
+          end
         elsif options[:action] == :delete then
+          bucket = s3_resource.bucket(options.bucketname)
+          bucket.delete_objects({
+            delete: {
+              objects: [
+                {
+                  key: options.filepath.split(File::SEPERATOR)[-1],
+                },
+              ],
+            },
+            }
+            })
+          # obj = bucket.objects['']
+          # obj.delete
 
         elsif options[:action] == :download then
-
-      	# end
+          obj = s3_resource.bucket(options.bucketname).object(options.filepath.split(File::SEPERATOR)[-1])
+          obj.get(response_target: options.filepath.split(File::SEPERATOR)[-1])
+      	else
+          AWS_parser.parse %w[--print_outs]
 end
