@@ -72,8 +72,9 @@ bucket = s3_r.bucket(options[:bucket_name])
           # obj.upload_file(file)
 
         elsif options[:action] == :list then
-          s3_r.buckets.each do |obj|
-             puts "#{obj.name}\t#{obj.name}"
+          bucket = s3_r.bucket(options[:bucket_name])
+          bucket.objects.each do |obj|
+             puts "#{obj.key}\t#{obj.etag}"
          end
 
         elsif options[:action] == :delete then
