@@ -4,6 +4,7 @@ require 'aws-sdk'
 require 'yaml'
 require 'optparse'
 require 'rubygems'
+require 'pp'
 
 options = {}
 opt_parser = OptionParser.new do |opts|
@@ -43,18 +44,17 @@ opt_parser.parse!(ARGV)
 raise OptionParser::MissingArgument, "\nPlease provide an action (list, upload, delete, download)" if options[:action].nil?
 creds = YAML.load_file('config.yaml')
 
-s3 = Aws::S3::Resource.new({
+s3_r = Aws::S3::Resource.new({
       region: creds[:region],
       access_key_id: creds[:access_key_id],
       secret_access_key: creds[:secret_access_key]
     })
-s3 = Aws::S3::Client.new({
+s3_c = Aws::S3::Client.new({
       region: creds[:region],
       access_key_id: creds[:access_key_id],
       secret_access_key: creds[:secret_access_key]
     })
-
-    #  raise OptionParser::MissingArgument, "\nPlease provide a valid action" if options['b'].nil?
+bucket = s3_r.bucket(options[:bucket_name])
 
 # to upload
 # Create an instance of the Aws::S3::Resource class
@@ -63,31 +63,30 @@ s3 = Aws::S3::Client.new({
         if options[:action] == :upload then
           file = '/Users/krisbredemeier/Downloads/holberton-logo.png'
           name = File.basename(file)
-          obj = s3.bucket('bredemeier').object(name)
+          obj = s3_r.bucket('bredemeier').object(name)
           obj.upload_file(file)
 
         elsif options[:action] == :list then
-          s3.buckets.each do |bucket|
-              puts "#{obj.key}\t#{obj.etag}"
-          end
+          s3_r.buckets.each do |obj|
+             puts "#{obj.name}\t#{obj.name}"
+         end
+
         elsif options[:action] == :delete then
-          bucket = s3_resource.bucket(options.bucketname)
-          bucket.delete_objects({
-            delete: {
-              objects: [
-                {
-                  key: options.filepath.split(File::SEPERATOR)[-1],
+              bucket = s3_r.bucket(options[:bucket_name])
+              bucket.delete_objects({
+                delete: {
+                  objects: [
+                    {
+                      key: options[:file_path].split(File::SEPARATOR)[-1],
+                    },
+                  ],
                 },
-              ],
-            },
-            }
             })
-          # obj = bucket.objects['']
-          # obj.delete
 
         elsif options[:action] == :download then
-          obj = s3_resource.bucket(options.bucketname).object(options.filepath.split(File::SEPERATOR)[-1])
-          obj.get(response_target: options.filepath.split(File::SEPERATOR)[-1])
+          obj = s3_resource.bucket(options.bucketname).object(options[:file_path].split(File::SEPARATOR)[-1])
+          obj.get(response_target: options[:file_path].split(File::SEPARATOR)[-1])
+
       	else
           AWS_parser.parse %w[--print_outs]
 end
