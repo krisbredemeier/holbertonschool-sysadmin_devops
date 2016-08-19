@@ -60,11 +60,16 @@ bucket = s3_r.bucket(options[:bucket_name])
 # Create an instance of the Aws::S3::Resource class
 # Reference the target object by bucket name and key
 # Call#upload_file on the object
+
         if options[:action] == :upload then
-          file = '/Users/krisbredemeier/Downloads/holberton-logo.png'
-          name = File.basename(file)
-          obj = s3_r.bucket('bredemeier').object(name)
-          obj.upload_file(file)
+          bucket.put_object({
+            body: File.read(options[:file_path]),
+            key: options[:file_path].split(File::SEPARATOR)[-1]
+            })
+          # file = '/Users/krisbredemeier/Downloads/holberton-logo.png'
+          # name = File.basename(file)
+          # obj = s3_r.bucket('bredemeier').object(name)
+          # obj.upload_file(file)
 
         elsif options[:action] == :list then
           s3_r.buckets.each do |obj|
