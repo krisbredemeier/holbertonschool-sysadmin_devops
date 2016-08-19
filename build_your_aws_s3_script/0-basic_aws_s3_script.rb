@@ -74,7 +74,7 @@ bucket = s3_r.bucket(options[:bucket_name])
         elsif options[:action] == :list then
           bucket = s3_r.bucket(options[:bucket_name])
           bucket.objects.each do |obj|
-             puts "#{obj.key}\t#{obj.etag}"
+             puts "#{obj.key}=>#{obj.etag}"
          end
 
         elsif options[:action] == :delete then
@@ -90,7 +90,7 @@ bucket = s3_r.bucket(options[:bucket_name])
             })
 
         elsif options[:action] == :download then
-          obj = s3_resource.bucket(options.bucketname).object(options[:file_path].split(File::SEPARATOR)[-1])
+          obj = s3_r.bucket(options[:bucket_name]).object(options[:file_path].split(File::SEPARATOR)[-1])
           obj.get(response_target: options[:file_path].split(File::SEPARATOR)[-1])
 
       	else
