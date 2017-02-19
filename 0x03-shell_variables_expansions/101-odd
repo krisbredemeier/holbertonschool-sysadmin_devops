@@ -1,2 +1,2 @@
 #!/bin/bash
-cat -n 
+cat -n | grep | cut -b 8
